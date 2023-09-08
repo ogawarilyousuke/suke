@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <h1>映画観覧予約フォーム</h1>
-    <form action="confirm.php" method="post">
+    <form action="konfirn.php" method="post">
       <div class="mb-3 row">
         <label for="namae1" class="col-sm-2 col-form-label">名前（姓）</label>
         <div class="col-sm-10">
