@@ -1,4 +1,4 @@
-[09:35] <?php
+ <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 extract($_POST);
 $errors = [];
@@ -41,11 +41,11 @@ if ($mysqli->connect_error) {
 } else {
   // 接続成功時の処理
   // 接続成功時の処理
-  $query  = "SELECT id, created_at, namae2, namae1, eiga, time, payment FROM form ORDER BY id ASC";
+  $query  = "SELECT id, created_at, namae4, namae3, namae2, namae1, eiga, time, payment FROM form ORDER BY id ASC";
   $stmt   = $mysqli->prepare($query);
   if (!empty($wheres)) {
     $where  = implode(" AND ", $wheres);
-    $query  = "SELECT id, created_at, namae2, namae1, eiga, time, payment FROM form WHERE {$where} ORDER BY id ASC";
+    $query  = "SELECT id, created_at,  namae4, namae3,namae2, namae1, eiga, time, payment FROM form WHERE {$where} ORDER BY id ASC";
     $stmt   = $mysqli->prepare($query);
   }
   try {
@@ -115,12 +115,12 @@ $mysqli->close();
         <tbody>
           <?php foreach ($rows as $row) { ?>
             <tr>
-              <td><?php echo htmlspecialchars($row['ID']); ?></td>
+              <td><?php echo htmlspecialchars($row['id']); ?></td>
               <td><?php echo htmlspecialchars($row['created_at']); ?></td>
               <td><?php echo htmlspecialchars("{$row['namae1']}{$row['namae2']}{$row['namae3']}{$row['namae4']}") ?></td>
               <td><?php echo htmlspecialchars($row['eiga']); ?></td>
               <td><?php echo htmlspecialchars($row['time']); ?></td>
-              <td><?php echo htmlspecialchars($row['payment']); ?></td>
+              <td><?php echo htmlspecialchars("{$row['payment']}"); ?></td>
             </tr>
           <?php } ?>
         </tbody>
